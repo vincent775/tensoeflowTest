@@ -33,7 +33,7 @@ l1 = add_layer(xs,1,10,activation_function=tf.nn.relu)
 predition = add_layer(l1,10,1,activation_function=None)
 
 # 校验偏差值
-loss = tf.reduce_min(tf.reduce_sum(tf.square(ys - predition),reduction_indices=[1]))
+loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - predition),reduction_indices=[1]))
 # 最重要的一步，梯度下降法学习（以loss的偏差值以0.1为标准学习）
 train_step = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
 
